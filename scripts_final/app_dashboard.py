@@ -6,6 +6,8 @@ from dash import dcc, html
 import plotly.express as px
 import plotly.graph_objects as go
 import networkx as nx
+import webbrowser
+from threading import Timer
 
 # 🔹 Inicializar app
 app = dash.Dash(__name__)
@@ -114,5 +116,12 @@ app.layout = html.Div(style={"fontFamily": "Arial", "padding": "10px"}, children
 ])
 
 # 🚀 Ejecutar
-if __name__ == '__main__':
-    app.run(debug=True)
+
+
+
+def open_browser():
+    webbrowser.open_new("http://127.0.0.1:8050/")
+
+if __name__ == "__main__":
+    Timer(1, open_browser).start()
+    app.run(debug=False)
